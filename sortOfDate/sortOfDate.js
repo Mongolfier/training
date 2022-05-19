@@ -35,12 +35,12 @@ function sortOperations(operations) {
 
     const prevDateList = acc[year] || [];
 
-    return { ...acc, [year]: [...prevDateList, [month, day].join("-")] }
+    acc[year] = [...prevDateList, [month, day].join("-")]
+
+    return acc;
   }, {})
 
-  return Object.keys(structed).map((key) => {
-    return structed[key] = structed[key].sort()
-  })
+  return Object.keys(structed).map((key) => structed[key] = structed[key].sort())
 }
 
 console.log(sortOperations(operations));
